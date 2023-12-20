@@ -260,6 +260,8 @@ class parallel_to_aec_wrapper(AECEnv):
         self.new_values = {}
 
     def observe(self, agent):
+        if isinstance(self._observations, tuple):
+            return self._observations[0][agent]
         return self._observations[agent]
 
     def state(self):
